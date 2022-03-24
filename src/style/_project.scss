@@ -1,0 +1,53 @@
+.project {
+  width: fit-content;
+  height: fit-content;
+  margin: 1em;
+
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.5em;
+    width: 80%;
+    opacity: 0;
+    transition: opacity .5s;
+  }
+
+  button {
+    min-width: 300px;
+    aspect-ratio: 1;
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+    img {
+      height: 100%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 200%;
+      width: 100%;
+      transform: translateY(-50%) rotate(-45deg) translateX(150%);
+      background-image: linear-gradient(to right ,transparent 10%,transparentize($primary-color,.2) 50%, $primary-color 60%,transparent 70%);
+      transition: transform 1s;
+    }
+  }
+
+  &:hover {
+    button {
+      &::after {
+        transform: translateY(-50%) rotate(-45deg) translateX(-150%);
+      }
+    }
+    .title {
+      transition: opacity 1s .25s;
+      opacity: 1;
+    }
+  }
+
+}
+

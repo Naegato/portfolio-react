@@ -1,0 +1,130 @@
+#first-section {
+  background-image: linear-gradient(to right,transparent, transparentize($secondary-color, .5) 50vw,transparent 65vw);
+  height: calc(100vh - 5em);
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  transition: align-items 1s, padding 1s;
+
+  .info {
+    text-shadow: 0 0 5px $primary-color;
+    font-size: 1.2vw;
+    transition: transform 1s;
+
+    h2 {
+      margin-bottom: .5em;
+    }
+
+    a {
+      background-color: transparentize($secondary-color,.2);
+      color: $text-color-light ;
+      margin: 0 4.5em;
+      padding: .2em 1em;
+      border-radius: 8px;
+      transition: opacity .5s;
+
+      &:hover {
+        opacity: .9;
+      }
+
+      &:focus, &:visited, &:active {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .title {
+    width: fit-content;
+    [data-text] {
+      font-size: 10vw;
+      color: transparentize($secondary-color,.2);
+      transition: color 1s;
+      animation: first-section-hover-title-opacity 2s infinite 2s alternate;
+
+      &::after, &::before {
+        top: 0;
+        left: 0;
+        position: absolute;
+        content: attr(data-text);
+        color: transparent;
+        background-clip: text ;
+        transition: top 1s ,left 1s ;
+      }
+      &::after {
+        z-index: 2;
+        background-image: repeating-linear-gradient(135deg, transparent 1%, $secondary-color 2%);
+        animation: first-section-hover-title-after 2s infinite 2s alternate;
+      }
+      &::before {
+        z-index: -1;
+        background-image: repeating-linear-gradient(45deg, transparent 1%, $secondary-color 2%);
+        animation: first-section-hover-title-before 2s infinite 2s alternate;
+      }
+    }
+  }
+
+  img {
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    filter: blur(0.5px) contrast(70%) grayscale(100%) brightness(70%) ;
+  }
+}
+
+@keyframes first-section-hover-title-opacity {
+  from,80% {
+    color: $secondary-color;
+  }
+  to {
+    color: transparentize($secondary-color,.8);
+  }
+}
+@keyframes first-section-hover-title-after {
+  from,80% {
+    top: 0;
+    left: 0;
+  }
+  to {
+    top: -.1em;
+    left: -.1em;
+  }
+}
+@keyframes first-section-hover-title-before {
+  from,80% {
+    top: 0;
+    left: 0;
+  }
+  to {
+    top: .1em;
+    left: .1em;
+  }
+}
+
+@include below(sm) {
+  #first-section {
+    .title {
+      [data-text] {
+        font-size: 4em;
+      }
+    }
+  }
+}
+
+@include below(lg) {
+  #first-section {
+    padding: 15vw;
+
+    .info {
+      transform: translateX(10vw);
+      font-size: .7em;
+
+      h2{
+        color: $text-color-dark ;
+      }
+    }
+  }
+}

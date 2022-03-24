@@ -1,0 +1,64 @@
+#root {
+  padding-top: 5em;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 10vw;
+  border-bottom: 2px solid;
+  background-color: $primary-color;
+  border-color: transparentize($secondary-color,.95);
+  z-index: 200;
+
+  .logo {
+    position: absolute;
+    left: calc(10vw + 2em);
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  ul {
+    font-size: 1.5em;
+    margin-right: 1em;
+    display: flex;
+    justify-self: flex-end;
+
+    li {
+      margin: 0 1em;
+      font-size: inherit;
+
+      button {
+        font-family: SourceSansProSemiBold, sans-serif;
+        background-color: transparent;
+        border:none;
+        padding: .2em;
+        font-size: inherit;
+
+        &::after {
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          height: 2px;
+          width: 0;
+          content: '';
+          background-color: $secondary-color;
+          transition: width 1s;
+        }
+
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
