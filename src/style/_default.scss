@@ -1,13 +1,7 @@
-/**
-* Used to declare media queries. Usage examples :
-* - @include above(sm) {...}
-* - @include below(sm) {...}
-* - @include between(sm, md) {...}
- */
 * {
   margin: 0;
   padding: 0;
-  color: #2c2c2c;
+  color: $text-color;
   position: relative;
   box-sizing: border-box;
   font-family: SourceSansProRegular, sans-serif;
@@ -25,7 +19,7 @@ h6 {
 }
 
 body {
-  background-color: #e1e1e1;
+  background-color: $primary-color;
   min-height: 100vh;
   width: 100%;
 }
@@ -58,13 +52,13 @@ section {
   width: 100%;
   min-height: 100vh;
   padding: 0 10vw;
-  transition: padding 0.5s;
+  transition: padding .5s;
 }
 
-@media (max-width: 1199px) {
+@include below(lg) {
   #root {
     padding: 0;
   }
 }
 
-/*# sourceMappingURL=index.css.map */
+// ? ::-webkit-scrollbar {display: none;}
