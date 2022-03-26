@@ -17,6 +17,52 @@ nav {
   border-color: transparentize($secondary-color,.95);
   z-index: 200;
 
+  .navbar-button {
+    aspect-ratio: 1;
+    height: 50%;
+    border: 1px solid transparentize($secondary-color,.75);
+    border-radius: .3em;
+    background-color: transparent;
+
+    &.active {
+      &::after {
+        position: absolute;
+        content: '';
+        height: 1px;
+        width: 80%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(45deg);
+        background-color: transparentize($secondary-color,.75);
+        box-shadow: none;
+      }
+      &::before {
+        position: absolute;
+        content: '';
+        height: 1px;
+        width: 80%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(-45deg);
+        background-color: transparentize($secondary-color,.75);
+        box-shadow: none;
+      }
+    }
+
+    &::after, &::before {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 80%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background-color: transparentize($secondary-color,.75);
+      box-shadow: 0 .5em 0 transparentize($secondary-color,.75), 0 -.5em 0 transparentize($secondary-color,.75);
+      transition: box-shadow .5s, transform .5s;
+    }
+  }
+
   .logo {
     position: absolute;
     left: calc(10vw + 2em);
@@ -57,6 +103,28 @@ nav {
             width: 100%;
           }
         }
+      }
+    }
+  }
+
+  @include below(lg) {
+    ul {
+      font-size: 1.5em;
+      margin-right: 1em;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 100%);
+      text-align: center;
+
+      li {
+        background-color: transparentize($primary-color,.5);
+        box-shadow: 0 0 .5em transparentize($primary-color,.8);
+        border-radius: .5em;
+        margin: .2em 0;
+        font-size: inherit;
       }
     }
   }
