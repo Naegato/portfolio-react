@@ -47,55 +47,55 @@ export const AboutPage = () => {
                 </ul>
             </div>
             <div className="timeline">
-                <h1>Timeline</h1>
+                <h1>Timeline:</h1>
                 <div>
                     <div className="event">
-                        <div>2014 - 2016</div>
-                        <div>
-                            <h2>React</h2>
+                        <div className="date">2021 - 2022</div>
+                        <div className="info">
+                            <h2>Typescript / react</h2>
+                            <p>Apprentissage en entreprise</p>
+                        </div>
+                    </div>
+                    <div className="event">
+                        <div className="date">2021 - 2022</div>
+                        <div className="info">
+                            <h2>Symfony</h2>
+                            <p>Apprentissage scolaire</p>
+                        </div>
+                    </div>
+                    <div className="event">
+                        <div className="date">2021 - 2022</div>
+                        <div className="info">
+                            <h2>Javascript</h2>
+                            <p>Aprofondisement autodidact</p>
+                        </div>
+                    </div>
+                    <div className="event">
+                        <div className="date">2021 - 2022</div>
+                        <div className="info">
+                            <h2>HTML / CSS</h2>
+                            <p>Approfondisement autodidact</p>
+                        </div>
+                    </div>
+                    <div className="event">
+                        <div className="date">2020 - 2021</div>
+                        <div className="info">
+                            <h2>HTML / Javascript / PHP</h2>
+                            <p>Apprentissage scolaire / autodidact</p>
+                        </div>
+                    </div>
+                    <div className="event">
+                        <div className="date">2020 - 2021</div>
+                        <div className="info">
+                            <h2>Python</h2>
                             <p>Apprentissage autodidact</p>
                         </div>
                     </div>
                     <div className="event">
-                        <div>2014 - 2016</div>
-                        <div>
-                            <h2>React</h2>
-                            <p>Apprentissage autodidact</p>
-                        </div>
-                    </div>
-                    <div className="event">
-                        <div>2014 - 2016</div>
-                        <div>
-                            <h2>React</h2>
-                            <p>Apprentissage autodidact</p>
-                        </div>
-                    </div>
-                    <div className="event">
-                        <div>2014 - 2016</div>
-                        <div>
-                            <h2>React</h2>
-                            <p>Apprentissage autodidact</p>
-                        </div>
-                    </div>
-                    <div className="event">
-                        <div>2014 - 2016</div>
-                        <div>
-                            <h2>React</h2>
-                            <p>Apprentissage autodidact</p>
-                        </div>
-                    </div>
-                    <div className="event">
-                        <div>2014 - 2016</div>
-                        <div>
-                            <h2>React</h2>
-                            <p>Apprentissage autodidact</p>
-                        </div>
-                    </div>
-                    <div className="event">
-                        <div>2014 - 2016</div>
-                        <div>
-                            <h2>React</h2>
-                            <p>Apprentissage autodidact</p>
+                        <div className="date">2018 - 2020</div>
+                        <div className="info">
+                            <h2>Arduino</h2>
+                            <p>Apprentissage scolaire</p>
                         </div>
                     </div>
                 </div>

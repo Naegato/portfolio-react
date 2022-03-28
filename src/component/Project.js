@@ -1,11 +1,11 @@
-export const Project = () => {
+export const Project = ({image, name, description, time = null,begin,finish = null}) => {
     return (
         <div className="project">
-            <button>
-                <img src="https://picsum.photos/200" alt="image" />
+            <button >
+                <img src={image} alt="image" />
             </button>
             <h3 className="title">
-                Title waw omg it's fun
+                {name}
             </h3>
         </div>
     )

@@ -40,7 +40,7 @@ export const Home = ({navigation}) => {
                             et back avec <strong className="bold">php</strong> et <strong className="bold underline"> symfony </strong>)
                             et logiciel avec <strong className="bold">python</strong> et <strong className="bold">c#</strong> entre autres...
                         </p>
-                        <button>
+                        <button onClick={() => {navigation('AboutPage')}}>
                             {/*About*/}
                             En savoir plus
                         </button>

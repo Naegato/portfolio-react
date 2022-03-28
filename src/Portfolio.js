@@ -1,6 +1,8 @@
 import * as lib from './componentLib';
-import {useState} from "react";
+import axios from 'axios';
+import {useEffect, useState} from "react";
 import {Component} from "./Component";
+import usePromise from "react-promise";
 
 export const Portfolio = () => {
     const Navbar = lib['Navbar'];
