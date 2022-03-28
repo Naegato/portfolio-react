@@ -5,7 +5,7 @@ import img3 from '../img/logo-sm.svg'
 import {useResize} from "../hook/useResize";
 import {useState} from "react";
 
-export const Navbar = () => {
+export const Navbar = ({onButtonNav}) => {
 
     const size = useResize();
 
@@ -24,19 +24,19 @@ export const Navbar = () => {
                 size.width > 1200 || toggleNavbar ?
                     <ul>
                         <li>
-                            <button>Home</button>
+                            <button onClick={() => {onButtonNav('Home')}}>Home</button>
                             {/* page tease*/}
                         </li>
                         <li>
-                            <button>About</button>
+                            <button onClick={() => { onButtonNav('AboutPage')}}>About</button>
                             {/* page avec une photo de moi, mes skills, une timeline, mon cv et une description*/}
                         </li>
                         <li>
-                            <button>Project</button>
+                            <button onClick={() => {onButtonNav('ProjectsPage')}}>Project</button>
                             {/*  page avec mes projets  */}
                         </li>
                         <li>
-                            <button>Contact</button>
+                            <button onClick={() => {onButtonNav('ContactPage')}}>Contact</button>
                         </li>
                     </ul> : null
             }

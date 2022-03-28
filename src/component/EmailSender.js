@@ -46,9 +46,9 @@ export const EmailSender = () => {
     return (
         <form className="email-sender" ref={form} onSubmit={sendEmail}>
             <TextTyping Type="input" name="user_email" typeValue="email" label="Email" />
-            <TextTyping Type="input" name="message_object" typeValue="text" label="Objet" />
+            <TextTyping Type="input" name="message_object" typeValue="text" label="Object" />
             <TextTyping Type="textarea" name="message" label="Message" />
-            <input type="submit" value="Envoyer" />
+            <button type="submit">Submit message</button>
         </form>
     );
 }

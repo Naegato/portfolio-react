@@ -2,5 +2,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 5em;
+
+  h1 {
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px transparentize($secondary-color, .5);
+    color: $primary-color;
+    font-size: 10vw;
+    letter-spacing: .2em;
+    margin-bottom: .1em;
+    animation: contactColor 10s alternate infinite;
+  }
+}
+
+@keyframes contactColor {
+  from, to {
+    color: $primary-color;
+  }
+  50% {
+    color: transparentize($secondary-color, .5);
+  }
+}
+
+@include below(sm) {
+  #fourth-section {
+    justify-content: normal;
+    padding: .2em;
+    padding-bottom: 50vh;
+  }
 }

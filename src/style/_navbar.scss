@@ -16,6 +16,7 @@ nav {
   background-color: $primary-color;
   border-color: transparentize($secondary-color,.95);
   z-index: 200;
+  transition: border-color 1s;
 
   .navbar-button {
     aspect-ratio: 1;
@@ -108,6 +109,7 @@ nav {
   }
 
   @include below(lg) {
+    border-color: transparentize($secondary-color,.7);
     ul {
       font-size: 1.5em;
       margin-right: 1em;
@@ -118,12 +120,13 @@ nav {
       left: 50%;
       transform: translate(-50%, 100%);
       text-align: center;
+      width: 100%;
+      background-color: $primary-color ;
 
       li {
-        background-color: transparentize($primary-color,.5);
-        box-shadow: 0 0 .5em transparentize($primary-color,.8);
-        border-radius: .5em;
-        margin: .2em 0;
+        border-bottom: 1px solid;
+        border-color: transparentize($secondary-color,.95);
+        padding: .2em 0;
         font-size: inherit;
       }
     }

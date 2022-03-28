@@ -121,6 +121,7 @@ section {
   position: absolute;
   z-index: 2;
   left: 1em;
+  background-color: rgba(225, 225, 225, 0.5);
   top: 50%;
   transform: translateY(-50%);
   transition: all 0.2s;
@@ -129,8 +130,8 @@ section {
   padding: 0 1em;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
+  background-color: rgba(225, 225, 225, 0.5);
+  border: 1px solid;
   border-radius: 0.2em;
 }
 .input input:focus-within {
@@ -139,7 +140,7 @@ section {
 .input:focus-within label, .input label.fill {
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(225, 225, 225, 0.5);
   border: 1px solid;
   border-radius: 1em;
   padding: 0.2em 0.8em;
@@ -153,10 +154,11 @@ section {
 .textarea textarea {
   resize: none;
   margin-top: 0.2em;
-  height: 15em;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 12em;
+  background-color: rgba(225, 225, 225, 0.5);
   padding: 1em;
-  border: none;
+  border: 1px solid;
+  border-radius: 0.2em;
 }
 .textarea textarea:focus-within {
   outline: none;
@@ -165,11 +167,8 @@ section {
 .input label.valid, .textarea label.valid {
   color: #259f41;
 }
-.input label.valid ~ input, .input label.valid ~ textarea, .textarea label.valid ~ input, .textarea label.valid ~ textarea {
-  background-color: #e8f0fe;
-}
 .input label.error, .textarea label.error {
-  color: #fd0000;
+  border-color: #fd0000;
 }
 
 #root {
@@ -190,6 +189,7 @@ nav {
   background-color: #e1e1e1;
   border-color: rgba(0, 0, 0, 0.05);
   z-index: 200;
+  transition: border-color 1s;
 }
 nav .navbar-button {
   aspect-ratio: 1;
@@ -269,6 +269,9 @@ nav ul li button:hover::after {
   width: 100%;
 }
 @media (max-width: 1199px) {
+  nav {
+    border-color: rgba(0, 0, 0, 0.3);
+  }
   nav ul {
     font-size: 1.5em;
     margin-right: 1em;
@@ -279,12 +282,13 @@ nav ul li button:hover::after {
     left: 50%;
     transform: translate(-50%, 100%);
     text-align: center;
+    width: 100%;
+    background-color: #e1e1e1;
   }
   nav ul li {
-    background-color: rgba(225, 225, 225, 0.5);
-    box-shadow: 0 0 0.5em rgba(225, 225, 225, 0.2);
-    border-radius: 0.5em;
-    margin: 0.2em 0;
+    border-bottom: 1px solid;
+    border-color: rgba(0, 0, 0, 0.05);
+    padding: 0.2em 0;
     font-size: inherit;
   }
 }
@@ -299,6 +303,7 @@ nav ul li button:hover::after {
   transition: align-items 1s, padding 1s;
 }
 #first-section .info {
+  z-index: 2;
   text-shadow: 0 0 5px #e1e1e1;
   font-size: 1.2vw;
   transition: transform 1s;
@@ -321,6 +326,7 @@ nav ul li button:hover::after {
   text-decoration: underline;
 }
 #first-section .title {
+  z-index: 2;
   width: fit-content;
 }
 #first-section .title [data-text] {
@@ -349,11 +355,15 @@ nav ul li button:hover::after {
   animation: first-section-hover-title-before 2s infinite 2s alternate;
 }
 #first-section img {
-  z-index: -1;
+  z-index: 1;
   position: absolute;
   right: 0;
   bottom: 0;
   filter: blur(0.5px) contrast(70%) grayscale(100%) brightness(70%);
+  transition: filter 1s;
+}
+#first-section img:hover {
+  filter: blur(0.5px) contrast(70%) grayscale(50%) brightness(70%);
 }
 
 @keyframes first-section-hover-title-opacity {
@@ -404,6 +414,7 @@ nav ul li button:hover::after {
 #second-section {
   display: flex;
   align-items: center;
+  font-size: 1.5vw;
 }
 #second-section > div {
   display: flex;
@@ -411,6 +422,7 @@ nav ul li button:hover::after {
 #second-section img {
   width: 50vw;
   flex-shrink: 0;
+  object-fit: cover;
   filter: grayscale(80%);
 }
 #second-section .more {
@@ -616,9 +628,34 @@ nav ul li button:hover::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 5em;
 }
+#fourth-section h1 {
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+  color: #e1e1e1;
+  font-size: 10vw;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.1em;
+  animation: contactColor 10s alternate infinite;
+}
 
+@keyframes contactColor {
+  from, to {
+    color: #e1e1e1;
+  }
+  50% {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+@media (max-width: 767px) {
+  #fourth-section {
+    justify-content: normal;
+    padding: 0.2em;
+    padding-bottom: 50vh;
+  }
+}
 .contact {
   width: 100%;
   height: 50vh;
@@ -631,18 +668,62 @@ nav ul li button:hover::after {
   padding: 2em;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact form > div {
+  width: 100%;
+  height: 100%;
+  margin: 0.2em 0;
+}
+.contact form button {
+  width: 100%;
+  border-radius: 0.2em;
+  border: none;
+  color: #aaa;
+  font-size: 1em;
+  padding: 0.5em;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .contact iframe {
   border: none;
 }
 
+@media (max-width: 767px) {
+  .contact {
+    flex-direction: column;
+  }
+}
 footer {
-  background-color: green;
-  height: 10em;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 6em;
   width: calc(100% + 20vw);
   left: -10vw;
   padding: 0 10vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #aaa;
+}
+footer div, footer h2, footer a, footer ul {
+  color: inherit;
+  font-size: 1em;
+  font-family: SourceSansProRegular, sans-serif;
+  width: 100%;
+  margin: 0 0.5em;
+}
+footer img {
+  filter: invert(0.5);
+}
+footer ul {
+  display: flex;
+  justify-content: space-between;
+}
+footer ul li {
+  transition: transform 1s;
+}
+footer ul li:hover {
+  transform: scale(1.2);
 }
 
 @media (max-width: 1199px) {
@@ -651,6 +732,117 @@ footer {
     width: 100%;
     padding: 2em;
   }
+}
+#contact {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 5em;
+}
+#contact h1 {
+  font-size: 10vw;
+  color: #e1e1e1;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.2em;
+  outline: 5px solid rgba(0, 0, 0, 0.3);
+  padding: 0 1.7em;
+}
+
+#projects h1 {
+  font-size: 10vw;
+  text-align: center;
+  margin-bottom: 0.2em;
+}
+#projects h1::after, #projects h1::before {
+  height: 0.05em;
+  position: absolute;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3);
+  animation: third-section-title 2s infinite alternate-reverse;
+}
+#projects h1::after {
+  bottom: -0.05em;
+}
+#projects h1::before {
+  top: 0.1em;
+  animation-delay: 2s;
+}
+#projects > div {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#about .about {
+  height: 100vh;
+  display: flex;
+  padding: 5em;
+  padding-top: 10em;
+  margin-top: -5em;
+}
+#about .about > div {
+  padding: 2em;
+}
+#about .about > div h1 {
+  font-size: 2em;
+  letter-spacing: 0.15em;
+  filter: drop-shadow(0.1em -0.05em 0 rgba(0, 0, 0, 0.3));
+}
+#about .about > div h2 {
+  font-size: 1.2em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+#about .about > div p {
+  letter-spacing: 0.1em;
+}
+#about .about > div button {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: none;
+  color: #aaa;
+  margin-top: 5em;
+  border-radius: 0.2em;
+  padding: 0.5em 1.5em;
+  font-size: 1.1em;
+}
+#about .about > div button:focus {
+  outline: none;
+}
+#about .skills {
+  background-color: rgba(0, 0, 0, 0.1);
+  left: -10vw;
+  padding: 2em 10vw;
+  width: calc(100% + 20vw);
+}
+#about .skills h1 {
+  font-size: 5vw;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  filter: drop-shadow(0.1em -0.05em 0 rgba(0, 0, 0, 0.3));
+}
+#about .skills ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+#about .skills ul li {
+  width: 45%;
+  padding: 0.2em 1em;
+  margin: 0.1em 2.5%;
+  font-size: 1.5em;
+}
+#about .skills ul li label, #about .skills ul li progress {
+  display: block;
+  text-transform: uppercase;
+}
+#about .skills ul li progress {
+  width: 100%;
+}
+#about .skills ul li progress::after {
+  content: attr(value) " %";
+  position: absolute;
+  right: 0;
+  top: -1.2em;
 }
 
 /*# sourceMappingURL=index.css.map */

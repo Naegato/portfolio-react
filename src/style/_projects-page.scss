@@ -1,0 +1,30 @@
+#projects {
+  h1 {
+    font-size: 10vw;
+    text-align: center;
+    margin-bottom: .2em ;
+
+    &::after,&::before {
+      height: .05em;
+      position: absolute;
+      content: '';
+      background-color: transparentize($secondary-color, .7) ;
+      animation: third-section-title 2s infinite alternate-reverse;
+    }
+
+    &::after {
+      bottom: -.05em;
+    }
+
+    &::before {
+      top: 0.1em;
+      animation-delay: 2s;
+    }
+  }
+
+  > div {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+}

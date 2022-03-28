@@ -1,9 +1,37 @@
 footer {
-  background-color: green;
-  height: 10em;
+  background-color: transparentize($secondary-color,.2);
+  height: 6em;
   width: calc(100% + 20vw);
   left: -10vw;
   padding: 0 10vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $text-color-light;
+
+  div,h2,a,ul {
+    color: inherit;
+    font-size: 1em;
+    font-family: SourceSansProRegular, sans-serif;
+    width: 100%;
+    margin: 0 .5em;
+  }
+
+  img {
+    filter: invert(.5);
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    li {
+      transition: transform 1s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
 }
 
 @include below(lg) {

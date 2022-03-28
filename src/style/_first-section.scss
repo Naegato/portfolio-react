@@ -9,6 +9,7 @@
   transition: align-items 1s, padding 1s;
 
   .info {
+    z-index: 2;
     text-shadow: 0 0 5px $primary-color;
     font-size: 1.2vw;
     transition: transform 1s;
@@ -36,6 +37,7 @@
   }
 
   .title {
+    z-index: 2;
     width: fit-content;
     [data-text] {
       font-size: 10vw;
@@ -66,12 +68,17 @@
   }
 
   img {
-    z-index: -1;
+    z-index: 1;
     position: absolute;
     right: 0;
     bottom: 0;
 
     filter: blur(0.5px) contrast(70%) grayscale(100%) brightness(70%) ;
+    transition: filter 1s;
+
+    &:hover {
+      filter: blur(0.5px) contrast(70%) grayscale(50%) brightness(70%) ;
+    }
   }
 }
 
