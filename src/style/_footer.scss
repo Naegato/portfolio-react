@@ -1,0 +1,15 @@
+footer {
+  background-color: green;
+  height: 10em;
+  width: calc(100% + 20vw);
+  left: -10vw;
+  padding: 0 10vw;
+}
+
+@include below(lg) {
+  footer {
+    left: 0;
+    width: 100%;
+    padding: 2em;
+  }
+}

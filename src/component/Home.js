@@ -1,6 +1,8 @@
 import img from '../img/first-section.png';
 import img2 from '../img/second-section.png';
 import {Project} from "./Project";
+import {EmailSender} from "./EmailSender";
+import {Contact} from "./Contact";
 
 export const Home = () => {
     return (
@@ -46,8 +48,11 @@ export const Home = () => {
                 </div>
             </section>
             <section id="fourth-section">
-
+                <Contact />
             </section>
+            <footer>
+                blalal
+            </footer>
         </>
     )
 }

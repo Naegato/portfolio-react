@@ -114,6 +114,64 @@ section {
     padding: 0;
   }
 }
+.input {
+  height: 2em;
+}
+.input label {
+  position: absolute;
+  z-index: 2;
+  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.2s;
+}
+.input input {
+  padding: 0 1em;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 0.2em;
+}
+.input input:focus-within {
+  outline: none;
+}
+.input:focus-within label, .input label.fill {
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid;
+  border-radius: 1em;
+  padding: 0.2em 0.8em;
+  transform: translateY(-50%) scale(0.8);
+}
+
+.textarea {
+  display: flex;
+  flex-direction: column;
+}
+.textarea textarea {
+  resize: none;
+  margin-top: 0.2em;
+  height: 15em;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  border: none;
+}
+.textarea textarea:focus-within {
+  outline: none;
+}
+
+.input label.valid, .textarea label.valid {
+  color: #259f41;
+}
+.input label.valid ~ input, .input label.valid ~ textarea, .textarea label.valid ~ input, .textarea label.valid ~ textarea {
+  background-color: #e8f0fe;
+}
+.input label.error, .textarea label.error {
+  color: #fd0000;
+}
+
 #root {
   padding-top: 5em;
 }
@@ -369,6 +427,7 @@ nav ul li button:hover::after {
   background-color: rgba(0, 0, 0, 0.8);
   color: #aaa;
   padding: 0.2em 1em;
+  border: none;
   border-radius: 8px;
   transition: opacity 0.5s;
 }
@@ -551,6 +610,47 @@ nav ul li button:hover::after {
 .project:hover .title {
   transition: opacity 1s 0.25s;
   opacity: 1;
+}
+
+#fourth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em;
+}
+
+.contact {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+}
+.contact > * {
+  width: 100%;
+}
+.contact form {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.contact iframe {
+  border: none;
+}
+
+footer {
+  background-color: green;
+  height: 10em;
+  width: calc(100% + 20vw);
+  left: -10vw;
+  padding: 0 10vw;
+}
+
+@media (max-width: 1199px) {
+  footer {
+    left: 0;
+    width: 100%;
+    padding: 2em;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

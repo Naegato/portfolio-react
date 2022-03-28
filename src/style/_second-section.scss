@@ -26,6 +26,7 @@
       background-color: transparentize($secondary-color,.2);
       color: $text-color-light ;
       padding: .2em 1em;
+      border: none;
       border-radius: 8px;
       transition: opacity .5s;
 
