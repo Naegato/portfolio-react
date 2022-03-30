@@ -9,3 +9,4 @@ export * from './component/ContactPage';
 export * from './component/ProjectsPage';
 export * from './component/AboutPage';
 export * from './component/Scroller';
+export * from './component/ProjectMore';

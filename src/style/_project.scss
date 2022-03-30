@@ -1,27 +1,33 @@
 .project {
-  width: fit-content;
-  height: fit-content;
+  width: 24vw;
+  min-width: 250px;
+  aspect-ratio: 1;
   margin: 1em;
 
   .title {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    top: 1em;
+    left: 0;
+    padding-left: 0;
+    color: $text-color-light;
+    background: linear-gradient(to right,transparentize($secondary-color, .2), transparent);
     font-size: 1.5em;
-    width: 80%;
-    opacity: 0;
-    transition: opacity .5s;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .4s, padding-left .8s .15s cubic-bezier(0.40, 0.50, 0.20, 2);
   }
 
   button {
-    min-width: 300px;
+    width: 100%;
     aspect-ratio: 1;
     background-color: transparent;
     border: none;
     overflow: hidden;
     img {
+      object-fit: cover;
       height: 100%;
+
     }
 
     &::after {
@@ -44,8 +50,8 @@
       }
     }
     .title {
-      transition: opacity 1s .25s;
-      opacity: 1;
+      transform: scaleX(100%);
+      padding-left: 1em ;
     }
   }
 

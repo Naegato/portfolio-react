@@ -24,15 +24,15 @@ export const Navbar = ({onButtonNav}) => {
                 size.width > 1200 || toggleNavbar ?
                     <ul>
                         <li>
-                            <button onClick={() => {onButtonNav('Home')}}>Home</button>
+                            <button onClick={() => {onButtonNav('Home')}}>Accueil</button>
                             {/* page tease*/}
                         </li>
                         <li>
-                            <button onClick={() => { onButtonNav('AboutPage')}}>About</button>
+                            <button onClick={() => { onButtonNav('AboutPage')}}>A propos</button>
                             {/* page avec une photo de moi, mes skills, une timeline, mon cv et une description*/}
                         </li>
                         <li>
-                            <button onClick={() => {onButtonNav('ProjectsPage')}}>Project</button>
+                            <button onClick={() => {onButtonNav('ProjectsPage')}}>Projets</button>
                             {/*  page avec mes projets  */}
                         </li>
                         <li>

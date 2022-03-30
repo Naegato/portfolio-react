@@ -4,7 +4,7 @@ import img2 from '../img/second-section.png';
 import {Project} from "./Project";
 import {Contact} from "./Contact";
 
-export const Home = ({navigation}) => {
+export const Home = ({navigation,projects = null}) => {
     return (
         <>
             <section id="first-section">
@@ -53,8 +53,20 @@ export const Home = ({navigation}) => {
                     Dernier Projet
                 </h2>
                 <div className="project-container">
-                    <Project />
-                    <Project />
+                    {
+                        projects[[...projects].length - 1] ?
+                            <Project {...projects[[...projects].length - 1]} navigation={(str, proj) => {
+                                navigation(str, proj)
+                            }} />
+                            : null
+                    }
+                    {
+                        projects[[...projects].length - 2] ?
+                            <Project {...projects[[...projects].length - 2]} navigation={(str, proj) => {
+                                navigation(str, proj)
+                            }} />
+                            : null
+                    }
                     <button onClick={() => {navigation('ProjectsPage')} } className="more">
                         •••
                     </button>

@@ -416,6 +416,11 @@ nav ul li button:hover::after {
   align-items: center;
   font-size: 1.5vw;
 }
+@media (max-width: 991px) {
+  #second-section {
+    font-size: 0.7em;
+  }
+}
 #second-section > div {
   display: flex;
 }
@@ -581,28 +586,33 @@ nav ul li button:hover::after {
   }
 }
 .project {
-  width: fit-content;
-  height: fit-content;
+  width: 24vw;
+  min-width: 250px;
+  aspect-ratio: 1;
   margin: 1em;
 }
 .project .title {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 1em;
+  left: 0;
+  padding-left: 0;
+  color: #aaa;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
   font-size: 1.5em;
-  width: 80%;
-  opacity: 0;
-  transition: opacity 0.5s;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s, padding-left 0.8s 0.15s cubic-bezier(0.4, 0.5, 0.2, 2);
 }
 .project button {
-  min-width: 300px;
+  width: 100%;
   aspect-ratio: 1;
   background-color: transparent;
   border: none;
   overflow: hidden;
 }
 .project button img {
+  object-fit: cover;
   height: 100%;
 }
 .project button::after {
@@ -620,8 +630,8 @@ nav ul li button:hover::after {
   transform: translateY(-50%) rotate(-45deg) translateX(-150%);
 }
 .project:hover .title {
-  transition: opacity 1s 0.25s;
-  opacity: 1;
+  transform: scaleX(100%);
+  padding-left: 1em;
 }
 
 #fourth-section {
@@ -924,6 +934,84 @@ footer ul li:hover {
   }
   #about .timeline h1 {
     font-size: 10vw;
+  }
+}
+
+.project-more {
+  margin-top: -5em;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 6em 0;
+  flex-direction: column;
+}
+@media (max-width: 1199px) {
+  .project-more {
+    padding-right: 5em;
+    padding-left: 5em;
+  }
+}
+.project-more .title {
+  width: fit-content;
+  padding: 0.25em;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+.project-more .title::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 1em;
+  z-index: -1;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  animation: projectMoreTitle 5s infinite;
+}
+.project-more .title > * {
+  background-color: #e1e1e1;
+  padding: 5px;
+}
+.project-more .title h1 {
+  font-size: 7vw;
+  text-transform: capitalize;
+}
+.project-more p {
+  margin-bottom: 2em;
+}
+.project-more .image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-more .image img {
+  width: 70%;
+  margin-bottom: 2em;
+}
+
+@keyframes projectMoreTitle {
+  from, 10% {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  40%, 50% {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  60%, 70% {
+    top: 0;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  80%, 90% {
+    top: 100%;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  to {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 

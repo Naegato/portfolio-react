@@ -1,23 +1,19 @@
 import {Project} from "./Project";
 
-export const ProjectsPage = () => {
+export const ProjectsPage = ({projects, navigation}) => {
+
     return (
         <section id="projects">
-            <h1>Projects :</h1>
+            <h1>Mes réalisations :</h1>
 
             <div>
-                 <Project />
-                 <Project />
-                 <Project />
-                 <Project />
-                 <Project />
-                 <Project />
-                 <Project />
-                 <Project />
-                 <Project />
-                 <Project />
-                 <Project />
-                 <Project />
+                {
+                    projects.map((project, key) => (
+                        <Project {...project} key={key} navigation={(str, proj) => {
+                            navigation(str, proj)
+                        }} />
+                    ))
+                }
             </div>
         </section>
     )

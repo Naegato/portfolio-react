@@ -3,6 +3,10 @@
   align-items: center;
   font-size: 1.5vw;
 
+  @include below(md) {
+    font-size: .7em;
+  }
+
   > div {
     display: flex;
   }

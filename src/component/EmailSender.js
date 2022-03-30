@@ -27,10 +27,9 @@ export const EmailSender = () => {
         if (bool) {
             emailjs.sendForm("service_8ev3tas","template_i2vl2xb", form.current, 'aa3zt7DC9F3tnAkdx')
                 .then((result) => {
-                    console.log(result.text);
                     alert('Message envoyer !')
                 }, (error) => {
-                    console.log(error.text);
+                    console.log(error);
                     alert('Un problème est survenu !')
                 });
             divs.forEach(div => {
