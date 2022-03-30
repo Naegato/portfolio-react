@@ -1,0 +1,59 @@
+.project {
+  width: 24vw;
+  min-width: 250px;
+  aspect-ratio: 1;
+  margin: 1em;
+
+  .title {
+    position: absolute;
+    top: 1em;
+    left: 0;
+    padding-left: 0;
+    color: $text-color-light;
+    background: linear-gradient(to right,transparentize($secondary-color, .2), transparent);
+    font-size: 1.5em;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .4s, padding-left .8s .15s cubic-bezier(0.40, 0.50, 0.20, 2);
+  }
+
+  button {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      height: 100%;
+
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 200%;
+      width: 100%;
+      transform: translateY(-50%) rotate(-45deg) translateX(150%);
+      background-image: linear-gradient(to right ,transparent 10%,transparentize($primary-color,.2) 50%, $primary-color 60%,transparent 70%);
+      transition: transform 1s;
+    }
+  }
+
+  &:hover {
+    button {
+      &::after {
+        transform: translateY(-50%) rotate(-45deg) translateX(-150%);
+      }
+    }
+    .title {
+      transform: scaleX(100%);
+      padding-left: 1em ;
+    }
+  }
+
+}
+

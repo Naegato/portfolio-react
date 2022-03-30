@@ -1,0 +1,15 @@
+#contact {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 5em;
+
+    h1 {
+        font-size: 10vw;
+        color: $primary-color;
+        -webkit-text-stroke: 1px transparentize($secondary-color, .5);
+        margin-bottom: .2em ;
+        outline: 5px solid transparentize($secondary-color,.7);
+        padding: 0 1.7em;
+    }
+}
