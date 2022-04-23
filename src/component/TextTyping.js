@@ -11,11 +11,7 @@ export const TextTyping = ({Type,name,label,typeValue = 'text'}) => {
         let valid;
         if (typeValue === 'email') {
             const regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if (regex.test(value)) {
-                valid = true;
-            } else {
-                valid = false;
-            }
+            valid = regex.test(value);
         } else {
             valid = true;
         }

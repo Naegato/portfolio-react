@@ -5,6 +5,7 @@ import {Project} from "./Project";
 import {Contact} from "./Contact";
 
 export const Home = ({navigation,projects = null}) => {
+
     return (
         <>
             <section id="first-section">

@@ -1,6 +1,8 @@
 import parse from 'html-react-parser';
 
 export const ProjectMore = (props) => {
+
+
     const {navigation} = props;
     const {name, image, description, begin, time = null, finish = null } = props.projects;
 
@@ -20,7 +22,7 @@ export const ProjectMore = (props) => {
                             parse(`<p>${description}</p>`)
                         }
                         <div className="image">
-                            <img src={image} />
+                            <img src={image} alt="project" />
                         </div>
                     </>
                 )

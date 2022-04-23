@@ -1,8 +1,11 @@
 import * as lib from './componentLib';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Component} from "./Component";
 
-import data from "./json/data.json";
+import json from "./json/data.json";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchData, getData} from "./redux/slice";
+// import {Authentificate} from "./axios/Authentificate";
 
 export const Portfolio = () => {
     const Navbar = lib['Navbar'];
@@ -20,10 +23,29 @@ export const Portfolio = () => {
         })
     }
 
+    // const t = new Authentificate("http://localhost:3001/portfolio-react");
+    // console.log(t);
+    // t.data.then((r) => {
+    //     console.log(r)
+    // });
+
+    const data = json["portfolio-react"].projects;
+
+    // const dispatch = useDispatch();
+    // const dataViewer = useSelector(getData);
+    //
+    // useEffect(() => {
+    //     dispatch(fetchData());
+    // }, []);
+    //
+    // const data = dataViewer.projects;
+    //
+    // console.log(data);
+
     return (
         <>
             <Navbar onButtonNav={(str) => setNav(str)} />
-            <Component page={page.page} navigation={(str, proj = null) => setNav(str, proj)} projects={page.project ? page.project : data} />
+                <Component page={page.page} navigation={(str, proj = null) => setNav(str, proj)} projects={page.project ? page.project : data} />
             <Footer />
         </>
     )
