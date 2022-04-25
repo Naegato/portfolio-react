@@ -784,11 +784,20 @@ footer ul li:hover {
 }
 
 #about .about {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  padding: 5em;
-  padding-top: 10em;
+  padding: 10em 5em 5em;
   margin-top: -5em;
+}
+#about .about img {
+  object-fit: contain;
+  max-height: 45em;
+}
+@media (max-width: 991px) {
+  #about .about {
+    padding: 6em 1em 1em;
+    flex-direction: column;
+  }
 }
 #about .about > div {
   padding: 2em;
@@ -806,17 +815,17 @@ footer ul li:hover {
 }
 #about .about > div p {
   letter-spacing: 0.1em;
+  margin-bottom: 2em;
 }
-#about .about > div button {
+#about .about > div a {
   background-color: rgba(0, 0, 0, 0.8);
   border: none;
   color: #aaa;
-  margin-top: 5em;
   border-radius: 0.2em;
   padding: 0.5em 1.5em;
   font-size: 1.1em;
 }
-#about .about > div button:focus {
+#about .about > div a:focus {
   outline: none;
 }
 #about .skills {

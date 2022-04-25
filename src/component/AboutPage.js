@@ -1,22 +1,25 @@
 import img from '../img/about.jpg';
+import json from "../json/data.json";
 
 export const AboutPage = () => {
+    const data = json["portfolio-react"];
     return (
         <section id="about">
             <div className="about">
-                <img src={img}/>
+                <img src={img} alt="image"/>
                 <div>
                     <h1>
                         MAXIME WIATR
                     </h1>
                     <h2>
-                        Dévellopeur web junior
+                        Développeur web junior
                     </h2>
                     <p>
-                        Je suis <strong>Maxime Wiatr</strong> étudiant au <strong>lycée saint vincent</strong>, le dévellopement web étant ma passion je souhaite en faire mon métier.
-                        Passionnée depuis plusieur années, volontaire et assidus je devellope quotidiennement des projets personel.
+                        Je suis <strong>Maxime Wiatr</strong> étudiant au <strong>lycée saint vincent</strong>,
+                        le développement web étant ma passion je souhaite en faire mon métier.
+                        Passionnée depuis plusieurs années, volontaire et assidus je developpe quotidiennement des projets personel.
                     </p>
-                    <button>Télécharger mon CV</button>
+                    <a href={data["personal-data"]["cv"]["data"]} download="cv-maxime-wiatr.pdf">Télécharger mon CV ({data["personal-data"]["cv"]["size"]} ko)</a>
                 </div>
             </div>
             <div className="skills">

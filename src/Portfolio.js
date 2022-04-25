@@ -24,16 +24,16 @@ export const Portfolio = () => {
         })
     }
 
-    // const data = json["portfolio-react"].projects;
-
-    const dispatch = useDispatch();
-    const dataViewer = useSelector(getData);
-
-    useEffect(() => {
-        dispatch(fetchData());
-    },[]);
-
-    const {data} = dataViewer;
+    const data = json["portfolio-react"];
+    //
+    // const dispatch = useDispatch();
+    // const dataViewer = useSelector(getData);
+    //
+    // useEffect(() => {
+    //     dispatch(fetchData());
+    // },[]);
+    //
+    // const {data} = dataViewer;
 
     if (data.projects) {
         return (

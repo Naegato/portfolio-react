@@ -18,25 +18,25 @@ export const Navbar = ({onButtonNav}) => {
     return (
         <nav>
             <div className="logo">
-                <img src={size.width < 1200 ? size.width < 600 ? img3 : img2 : img1}/>
+                <img src={size.width < 1200 ? size.width < 600 ? img3 : img2 : img1} alt="image"/>
             </div>
             {
                 size.width > 1200 || toggleNavbar ?
                     <ul>
                         <li>
-                            <button onClick={() => {onButtonNav('Home')}}>Accueil</button>
+                            <button onClick={() => {onButtonNav('Home'); if (size.width < 1200) {toggleNav()}}}>Accueil</button>
                             {/* page tease*/}
                         </li>
                         <li>
-                            <button onClick={() => { onButtonNav('AboutPage')}}>A propos</button>
+                            <button onClick={() => { onButtonNav('AboutPage'); if (size.width < 1200) {toggleNav()}}}>A propos</button>
                             {/* page avec une photo de moi, mes skills, une timeline, mon cv et une description*/}
                         </li>
                         <li>
-                            <button onClick={() => {onButtonNav('ProjectsPage')}}>Projets</button>
+                            <button onClick={() => {onButtonNav('ProjectsPage'); if (size.width < 1200) {toggleNav()}}}>Projets</button>
                             {/*  page avec mes projets  */}
                         </li>
                         <li>
-                            <button onClick={() => {onButtonNav('ContactPage')}}>Contact</button>
+                            <button onClick={() => {onButtonNav('ContactPage'); if (size.width < 1200) {toggleNav()}}}>Contact</button>
                         </li>
                     </ul> : null
             }

@@ -1,10 +1,19 @@
 #about {
   .about {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    padding: 5em;
-    padding-top: 10em;
+    padding: 10em 5em 5em;
     margin-top: -5em;
+
+    img {
+      object-fit: contain;
+      max-height: 45em;
+    }
+
+    @include below(md) {
+      padding: 6em 1em 1em;
+      flex-direction: column;
+    }
 
     > div {
       padding: 2em;
@@ -24,13 +33,13 @@
 
       p {
         letter-spacing: .1em;
+        margin-bottom: 2em;
       }
 
-      button {
+      a {
         background-color: transparentize($secondary-color,.2);
         border: none;
         color: $text-color-light;
-        margin-top: 5em;
         border-radius: .2em;
         padding: .5em 1.5em;
         font-size: 1.1em;

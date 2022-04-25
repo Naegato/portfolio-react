@@ -3,9 +3,10 @@ import img2 from '../img/second-section.png';
 
 import {Project} from "./Project";
 import {Contact} from "./Contact";
+import json from "../json/data.json";
 
 export const Home = ({navigation,projects = null}) => {
-
+    const data = json["portfolio-react"];
     return (
         <>
             <section id="first-section">
@@ -16,7 +17,7 @@ export const Home = ({navigation,projects = null}) => {
                 </div>
                 <div className="info">
                     <h2>Bts Sio - St Vincent - Senlis</h2>
-                    <a href="#">Télécharger CV</a>
+                    <a href={data["personal-data"]["cv"]["data"]} download="cv-maxime-wiatr.pdf">Télécharger CV ({data["personal-data"]["cv"]["size"]} ko)</a>
                 </div>
             </section>
             <section id="second-section">
@@ -36,7 +37,7 @@ export const Home = ({navigation,projects = null}) => {
                             Bonjour, je suis <strong>Maxime Wiatr</strong>,
                             étudiant au Lycée <strong className="underline bold">Saint-Vincent</strong>,
                             en <strong className="bold">bts sio</strong> sur l'année <strong className="bold">2021-2022</strong>.
-                            Je suis passioner pour le devellopement, web ( front avec <strong className="bold">vanilla JS</strong>,
+                            Je suis passioné par le developpement, web ( front avec <strong className="bold">vanilla JS</strong>,
                             <strong className="bold"> typescript </strong> et <strong className="bold underline"> react </strong>
                             et back avec <strong className="bold">php</strong> et <strong className="bold underline"> symfony </strong>)
                             et logiciel avec <strong className="bold">python</strong> et <strong className="bold">c#</strong> entre autres...
