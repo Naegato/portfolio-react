@@ -9,7 +9,7 @@ export class Authentificate {
         })
     }
 
-    fetchData() {
+    fetchAll() {
         return this.data;
     }
 }

@@ -5,7 +5,6 @@ import {Component} from "./Component";
 import json from "./json/data.json";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchData, getData} from "./redux/slice";
-// import {Authentificate} from "./axios/Authentificate";
 
 export const Portfolio = () => {
     const Navbar = lib['Navbar'];
@@ -17,36 +16,34 @@ export const Portfolio = () => {
     });
 
     const setNav = (str, project = null) => {
+        console.log('nav');
+        window.scrollTo(0, 0)
         setPage({
             page: str,
             project: project,
         })
     }
 
-    // const t = new Authentificate("http://localhost:3001/portfolio-react");
-    // console.log(t);
-    // t.data.then((r) => {
-    //     console.log(r)
-    // });
+    // const data = json["portfolio-react"].projects;
 
-    const data = json["portfolio-react"].projects;
+    const dispatch = useDispatch();
+    const dataViewer = useSelector(getData);
 
-    // const dispatch = useDispatch();
-    // const dataViewer = useSelector(getData);
-    //
-    // useEffect(() => {
-    //     dispatch(fetchData());
-    // }, []);
-    //
-    // const data = dataViewer.projects;
-    //
-    // console.log(data);
+    useEffect(() => {
+        dispatch(fetchData());
+    },[]);
 
-    return (
-        <>
-            <Navbar onButtonNav={(str) => setNav(str)} />
-                <Component page={page.page} navigation={(str, proj = null) => setNav(str, proj)} projects={page.project ? page.project : data} />
-            <Footer />
-        </>
-    )
+    const {data} = dataViewer;
+
+    if (data.projects) {
+        return (
+            <>
+                <Navbar onButtonNav={(str) => setNav(str)} />
+                    <Component page={page.page} navigation={(str, proj = null) => setNav(str, proj)} projects={page.project ? page.project : data.projects} />
+                <Footer />
+            </>
+        )
+    }
+
+    return <div>fallback</div>
 }

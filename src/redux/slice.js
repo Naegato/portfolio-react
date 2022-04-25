@@ -9,11 +9,12 @@ const initialState = {
 export const fetchData = () => async (dispatch) => {
     dispatch(dataLoading())
     const data = new Authentificate('http://localhost:3001/portfolio-react')
-    data.data.then((r) => {
+    data.fetchAll().then((r) => {
         // console.log(r)
         dispatch(dataReceived(r))
     });
 }
+
 export const dataSlice = createSlice({
     name: 'data',
     initialState,
