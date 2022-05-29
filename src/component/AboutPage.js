@@ -1,8 +1,24 @@
 import img from '../img/about.jpg';
-import json from "../json/data.json";
+// import json from "../json/data.json";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchCurriculum, getCurriculum} from "../redux/curriculumSlice";
+import {useEffect} from "react";
 
 export const AboutPage = () => {
-    const data = json["portfolio-react"];
+    // const data = json["portfolio-react"];
+    const dispatch = useDispatch();
+    const curriculumViewer = useSelector(getCurriculum);
+
+    useEffect(() => {
+        dispatch(fetchCurriculum);
+    },[]);
+
+    let cv = null;
+
+    if (curriculumViewer.data.length === 1) {
+        cv = curriculumViewer.data[0];
+    }
+
     return (
         <section id="about">
             <div className="about">
@@ -17,9 +33,15 @@ export const AboutPage = () => {
                     <p>
                         Je suis <strong>Maxime Wiatr</strong> étudiant au <strong>lycée saint vincent</strong>,
                         le développement web étant ma passion je souhaite en faire mon métier.
-                        Passionnée depuis plusieurs années, volontaire et assidus je developpe quotidiennement des projets personel.
+                        Passionné depuis plusieurs années, volontaire et assidus je développe quotidiennement des projets personels.
                     </p>
-                    <a href={data["personal-data"]["cv"]["data"]} download="cv-maxime-wiatr.pdf">Télécharger mon CV ({data["personal-data"]["cv"]["size"]} ko)</a>
+                    {
+                        cv !== null ?
+                            <a href={cv.file.path} download={cv.file.name.concat('.',cv.file.extension)}>Télécharger CV ({Math.round(cv.file.size / 1000)} ko)</a>
+                            : null
+
+                    }
+                    {/*<a href={data["personal-data"]["cv"]["data"]} download="cv-maxime-wiatr.pdf">Télécharger mon CV ({data["personal-data"]["cv"]["size"]} ko)</a>*/}
                 </div>
             </div>
             <div className="skills">

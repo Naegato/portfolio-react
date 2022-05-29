@@ -1,10 +1,6 @@
 import * as lib from './componentLib';
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Component} from "./Component";
-
-import json from "./json/data.json";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchData, getData} from "./redux/slice";
 
 export const Portfolio = () => {
     const Navbar = lib['Navbar'];
@@ -15,35 +11,19 @@ export const Portfolio = () => {
         project: null,
     });
 
-    const setNav = (str, project = null) => {
-        console.log('nav');
+    const setNav = (str, id = null) => {
         window.scrollTo(0, 0)
         setPage({
             page: str,
-            project: project,
+            project: id,
         })
     }
 
-    const data = json["portfolio-react"];
-    //
-    // const dispatch = useDispatch();
-    // const dataViewer = useSelector(getData);
-    //
-    // useEffect(() => {
-    //     dispatch(fetchData());
-    // },[]);
-    //
-    // const {data} = dataViewer;
-
-    if (data.projects) {
-        return (
-            <>
-                <Navbar onButtonNav={(str) => setNav(str)} />
-                    <Component page={page.page} navigation={(str, proj = null) => setNav(str, proj)} projects={page.project ? page.project : data.projects} />
-                <Footer />
-            </>
-        )
-    }
-
-    return <div>fallback</div>
+    return (
+        <>
+            <Navbar onButtonNav={(str) => setNav(str)} />
+                <Component page={page.page} navigation={(str, id = null) => setNav(str, id)} projectId={page.project} />
+            <Footer />
+        </>
+    )
 }

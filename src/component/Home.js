@@ -3,10 +3,37 @@ import img2 from '../img/second-section.png';
 
 import {Project} from "./Project";
 import {Contact} from "./Contact";
-import json from "../json/data.json";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchProject, getProject} from "../redux/projectSlice";
+import {useEffect} from "react";
+import arraySortObject from "../utilities/arraySortObject";
+import {fetchCurriculum, getCurriculum} from "../redux/curriculumSlice";
 
-export const Home = ({navigation,projects = null}) => {
-    const data = json["portfolio-react"];
+export const Home = ({navigation}) => {
+    const dispatch = useDispatch();
+    const projectViewer = useSelector(getProject);
+    const curriculumViewer = useSelector(getCurriculum);
+
+    useEffect(() => {
+        dispatch(fetchProject());
+        dispatch(fetchCurriculum());
+    },[]);
+
+    let projects = [];
+
+    for (let i = 0 ; i<2 ; i++)
+    {
+        try {
+            projects.push(arraySortObject( projectViewer.data, 'dateEnd')[i]);
+        } catch (e) {}
+    }
+
+    let cv = null;
+
+    if (curriculumViewer.data.length === 1) {
+        cv = curriculumViewer.data[0];
+    }
+
     return (
         <>
             <section id="first-section">
@@ -17,22 +44,19 @@ export const Home = ({navigation,projects = null}) => {
                 </div>
                 <div className="info">
                     <h2>Bts Sio - St Vincent - Senlis</h2>
-                    <a href={data["personal-data"]["cv"]["data"]} download="cv-maxime-wiatr.pdf">Télécharger CV ({data["personal-data"]["cv"]["size"]} ko)</a>
+                    {/*<a href={data["personal-data"]["cv"]["data"]} download="cv-maxime-wiatr.pdf">Télécharger CV ({data["personal-data"]["cv"]["size"]} ko)</a>*/}
+                    {
+                        cv !== null ?
+                            <a href={cv.file.path} download={cv.file.name.concat('.',cv.file.extension)}>Télécharger CV ({Math.round(cv.file.size / 1000)} ko)</a>
+                            : null
+
+                    }
                 </div>
             </section>
             <section id="second-section">
                 <div>
                     <img src={img2} alt='image' />
                     <div className="more">
-                        {/*<p>*/}
-                        {/*    Hello, I am <span className="bold">Maxime Wiatr</span>,*/}
-                        {/*    a student at the Lycée <span className="underline bold">Saint-Vincent</span>,*/}
-                        {/*    studying for a <span className="bold">bts sio</span> in the year <span className="bold">2021-2022</span>.*/}
-                        {/*    I am passionate about development, web (front with <span className="bold">vanilla JS</span>,*/}
-                        {/*    <span className="bold">typescript</span> and <span className="bold underline">react</span>*/}
-                        {/*    and back with <span className="bold">php</span> and <span className="bold underline">symfony</span>)*/}
-                        {/*    and software with <span className="bold">python</span> and <span className="bold">c#</span> among others...*/}
-                        {/*</p>*/}
                         <p>
                             Bonjour, je suis <strong>Maxime Wiatr</strong>,
                             étudiant au Lycée <strong className="underline bold">Saint-Vincent</strong>,
@@ -42,8 +66,8 @@ export const Home = ({navigation,projects = null}) => {
                             et back avec <strong className="bold">php</strong> et <strong className="bold underline"> symfony </strong>)
                             et logiciel avec <strong className="bold">python</strong> et <strong className="bold">c#</strong> entre autres...
                         </p>
-                        <button onClick={() => {navigation('AboutPage')}}>
-                            {/*About*/}
+                        <button onClick={() => {navigation('AboutPage');
+                            window.scrollTo(0, 0)}}>
                             En savoir plus
                         </button>
                     </div>
@@ -51,25 +75,18 @@ export const Home = ({navigation,projects = null}) => {
             </section>
             <section id="third-section">
                 <h2 data-text="Latest Overview" >
-                    {/*Latest Projects*/}
-                    Dernier Projet
+                    Dernier(s) Projet(s):
                 </h2>
                 <div className="project-container">
                     {
-                        projects[[...projects].length - 1] ?
-                            <Project {...projects[[...projects].length - 1]} navigation={(str, proj) => {
-                                navigation(str, proj)
+                        projects.map((project, key) =>
+                            <Project { ...project} key={key} navigation={(str, id = null) => {
+                                navigation(str, id)
                             }} />
-                            : null
+                        )
                     }
-                    {
-                        projects[[...projects].length - 2] ?
-                            <Project {...projects[[...projects].length - 2]} navigation={(str, proj) => {
-                                navigation(str, proj)
-                            }} />
-                            : null
-                    }
-                    <button onClick={() => {navigation('ProjectsPage')} } className="more">
+                    <button onClick={() => {navigation('ProjectsPage');
+                        window.scrollTo(0, 0)} } className="more">
                         •••
                     </button>
                 </div>

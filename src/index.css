@@ -140,7 +140,7 @@ section {
 .input:focus-within label, .input label.fill {
   left: 0;
   top: 0;
-  background-color: rgba(225, 225, 225, 0.5);
+  background-color: #e1e1e1;
   border: 1px solid;
   border-radius: 1em;
   padding: 0.2em 0.8em;
@@ -318,6 +318,7 @@ nav ul li button:hover::after {
   padding: 0.2em 1em;
   border-radius: 8px;
   transition: opacity 0.5s;
+  white-space: nowrap;
 }
 #first-section .info a:hover {
   opacity: 0.9;
@@ -503,7 +504,7 @@ nav ul li button:hover::after {
   padding: 2em 10vw;
 }
 #third-section h2 {
-  font-size: 10vw;
+  font-size: 8vw;
   width: fit-content;
 }
 #third-section h2::after {
@@ -571,7 +572,7 @@ nav ul li button:hover::after {
 }
 @media (max-width: 767px) {
   #third-section h2 {
-    font-size: 3em;
+    font-size: 2.5em;
   }
   #third-section .project-container {
     align-items: center;
@@ -824,6 +825,7 @@ footer ul li:hover {
   border-radius: 0.2em;
   padding: 0.5em 1.5em;
   font-size: 1.1em;
+  white-space: nowrap;
 }
 #about .about > div a:focus {
   outline: none;
@@ -995,6 +997,7 @@ footer ul li:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1em 0;
 }
 .project-more .image img {
   width: 70%;
