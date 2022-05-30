@@ -43,7 +43,7 @@ export const ProjectMore = (props) => {
                         {
                             project.images.map((image,key) => (
                                 <div className="image" key={key}>
-                                    <img src={image} alt="project" />
+                                    <img src={"http://localhost:8000/" + image.image.path} alt="project" />
                                 </div>
                             ))
                         }

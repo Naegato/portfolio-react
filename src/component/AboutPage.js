@@ -37,7 +37,7 @@ export const AboutPage = () => {
                     </p>
                     {
                         cv !== null ?
-                            <a href={cv.file.path} download={cv.file.name.concat('.',cv.file.extension)}>Télécharger CV ({Math.round(cv.file.size / 1000)} ko)</a>
+                            <a href={"http://localhost:8000/" + cv.file.path} download={cv.file.name.concat('.',cv.file.extension)}>Télécharger CV ({Math.round(cv.file.size / 1000)} ko)</a>
                             : null
 
                     }

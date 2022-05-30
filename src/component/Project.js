@@ -1,15 +1,16 @@
 export const Project = (props) => {
-    const {id, image, name, description, time = null,dateStart, dateEnd , navigation} = props
+    const {id, overview, name, navigation} = props
+    console.log(overview);
     return (
         <div className="project">
             <button onClick={() => {
                 window.scrollTo(0, 0);
                 navigation('ProjectMore',id);
             }} >
-                <img src={image} alt="image" />
+                <img src={"http://localhost:8000/" + (overview !== null ? overview.path : "uploads/Picture_icon_BLACK.svg")} alt="image" />
             </button>
             <h3 className="title">
-                {name} {id}
+                {name}
             </h3>
         </div>
     )

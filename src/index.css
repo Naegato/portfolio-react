@@ -613,8 +613,9 @@ nav ul li button:hover::after {
   overflow: hidden;
 }
 .project button img {
-  object-fit: cover;
+  object-fit: contain;
   height: 100%;
+  width: 100%;
 }
 .project button::after {
   content: "";

@@ -47,7 +47,7 @@ export const Home = ({navigation}) => {
                     {/*<a href={data["personal-data"]["cv"]["data"]} download="cv-maxime-wiatr.pdf">Télécharger CV ({data["personal-data"]["cv"]["size"]} ko)</a>*/}
                     {
                         cv !== null ?
-                            <a href={cv.file.path} download={cv.file.name.concat('.',cv.file.extension)}>Télécharger CV ({Math.round(cv.file.size / 1000)} ko)</a>
+                            <a href={"http://localhost:8000/" + cv.file.path} download={cv.file.name.concat('.',cv.file.extension)}>Télécharger CV ({Math.round(cv.file.size / 1000)} ko)</a>
                             : null
 
                     }
@@ -80,7 +80,7 @@ export const Home = ({navigation}) => {
                 <div className="project-container">
                     {
                         projects.map((project, key) =>
-                            <Project { ...project} key={key} navigation={(str, id = null) => {
+                            <Project {...project} key={key} navigation={(str, id = null) => {
                                 navigation(str, id)
                             }} />
                         )
